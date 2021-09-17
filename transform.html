@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* transform 속성
+        → 변형속성, 포토샵의 기능과 비슷함
+        → 왼쪽상단을 중심으로 변형이 이루어짐   
+        1) transform:tran :translate() : 위치값 이동, x/y/z축 사용가능
+        2) transform:rotate() : 회전, x/y/z축 사용가능 
+        3) transform:scale() : 크기값 변경(중심점을 기준), x/y/z축 사용가능
+        4) transform:skew() : 기울기값 변경, x/y축 사용가능 */
+
+        div {
+            width: 500px;
+            height: 500px;
+        }
+
+        #out_box {
+            border: 10px solid black;
+            /* 부모영역에서 가로세로 정중앙 위치 설정 */
+            position: absolute;
+            top:calc(50% - 250px);
+            left:calc(50% - 250px);
+            /* top: 50%;
+            left: 50%;
+            margin-top: -250px;
+            margin-left: -250px; */
+            /* perspective: 700px; */
+            /* perspective: 원근감 수치값 
+            -> 화면에 얼마나 많은 3차원 픽셀을 놓을 것인지 정의하는 속성
+            -> 일반적으로 400~2000px 사이의 숫자 입력
+            -> 숫자가 클 수록 밀집도가 증가한다*/
+        }
+
+        #in_box {
+            background-color: rgba(255,0,0,0.5);
+            font-size: 100px;
+            text-align: center;
+            line-height: 500px;
+            /* transform 위치이동 */
+            /* transform: translate(500px, 500px); */
+            /* -> 2d 평면상의 x,y축으로 위치조절 */
+            /* transform: translateX(500px);
+            transform: translateY(500px);
+            transform: translateZ(-50px);
+            transform: translateX(500px) translateY(500px); */
+            /* transform: rotate(45deg); */
+            /* transform: rotateZ(45deg); */
+            /* -> 각도 deg단위로 표시 
+               -> 2D 평면상의 회전*/
+            /* transform: rotateX(45deg); */
+            /* transform: rotateY(45deg); */
+            /* -> 입체적인 효과 확인을 위해 perspective(원근감)을 추가 적용해야 함 */
+            /* transform:scale(1.2,1.2); */
+            /* - 중심에서 크기 조절
+            - 배수값 설정 0.51(50%축소), 1(100%크기), 1.2(1.2배 확대), 2.0(2배 확대) 
+            -> transform:scale(x축, y축) */
+            /* transform:scaleX(1.5); */
+            /* transform:scaleY(1.2); */
+            /* transform: perspective(700px) scaleZ(0.5) rotateX(45deg); */
+            /*
+            1) perspective 속성을 부모에게 지정 
+            → 부모의 소실점을 기준으로 자식들의 원근감 적용
+            2) perspective 속성을 객체 자신에게 지정 
+            → 각 객체들에게 원근감이 따로 지정 (각자의 소실점을 가짐) */
+            /* transform: skew(15deg, 15deg); */
+            /* transform: skewX(15deg); */
+            /* transform: skewY(15deg); */
+            /* 
+            -> X축과 Y축을 보고 알 수 있는 것 → 왼쪽 상단과 오른쪽하단을 잡고 맞추어 기울인다
+            -> transform-origin으로 변형되는 기준점을 바꿀 수 있다.
+            > transform-origin: x축, y축
+            X축 → left, right, center
+            Y축 → top, bottom, center */
+            transform-origin: left bottom;
+            transform: rotate(15deg);
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="out_box">
+        <div id="in_box">transform</div>
+    </div>
+</body>
+</html>

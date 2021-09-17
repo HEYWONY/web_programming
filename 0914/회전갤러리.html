@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 초기화 */
+        /* 1. 여백제거 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /* 2. 리스트스타일 */
+        ul, ol, li {
+            list-style: none;
+        }
+        /* 3. 하이퍼링크 태그 밑줄 제거 */
+        a {
+            text-decoration: none;
+        }
+        /* 4. 이미지 테두리 */
+        img {
+            border: 0;
+        }
+
+        /* 1.html, body 높이값 강제 100%인식 */
+        html,body {
+            height: 100%;
+            /* -> 화면의 높이에 자식객체를 꽉채워주려고 하면
+            html, body에 높이값 강제로 100% 인식하도록 설정  */
+        }
+        /* 2. body 스타일 */
+        body {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 3. #canvas스타일 */
+        #canvas {
+            width: 100%;
+            height: 200px;
+            position: relative;
+            top: 0;
+            left: 0;
+            background-color: aqua;
+            perspective: 1500px;
+            /* -> 수치값이 작아질수록 왜곡이 커짐
+            -> 수치값이 커질수록 왜곡이 적어짐  */
+        }
+
+        /* 4. #rotation 스타일 */
+        #rotation {
+            position: absolute;
+            top: 30px;
+            left: 50%;
+            transform-style: preserve-3d;
+            /* -> 자식의 3차원 속성을 유지 */
+            animation:ro 10s infinite alternate linear;
+        }
+
+        /* 5. .face스타일  */
+        .face {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin-left: -115px; 
+            transform-style: preserve-3d; /* 3차원 공간처럼 보이기 위해 */
+            backface-visibility: hidden; 
+            /* -> 후면이 보이지 않게 설정 */
+        }
+
+        /* 6. .cell의 스타일 */
+        .cell {
+            width: 230px;
+            height: 150px;
+            margin-bottom: 5px;
+        }
+
+        .cell > img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 7. 각 .face의 회전값 설정 */
+        /* 360deg/10=36이므로 36도의 배수값으로 증가하면서 회전 
+        각각 .face를 -370px만큼 외곽으로 밀기*/
+        .face:nth-child(1) {
+            transform: rotateY(0) translateZ(-370px);
+        }
+        .face:nth-child(2) {
+            transform: rotateY(36deg) translateZ(-370px);
+        }
+        .face:nth-child(3) {
+            transform: rotateY(72deg) translateZ(-370px);
+        }
+        .face:nth-child(4) {
+            transform: rotateY(108deg) translateZ(-370px);
+        }
+        .face:nth-child(5) {
+            transform: rotateY(144deg) translateZ(-370px);
+        }
+        .face:nth-child(6) {
+            transform: rotateY(180deg) translateZ(-370px);
+        }
+        .face:nth-child(7) {
+            transform: rotateY(216deg) translateZ(-370px);
+        }
+        .face:nth-child(8) {
+            transform: rotateY(252deg) translateZ(-370px);
+        }
+        .face:nth-child(9) {
+            transform: rotateY(288deg) translateZ(-370px);
+        }
+        .face:nth-child(10) {
+            transform: rotateY(324deg) translateZ(-370px);
+        }
+
+        /* 8. .cell 마우스 올리면 1.2배로 확대되고, z 축으로 50px 만큼 위치 이동 */
+        .cell:hover {
+            transform: scale(1.2) translateZ(50px);            
+        }
+
+        /* 9.@keyframes 규칙으로 시작~끝값 지정 -> y축으로 0~360도 회전 */
+        @keyframes ro {
+            from {
+                transform: rotateY(0);
+            } to {
+                transform: rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 전체부모객체 -->
+    <div id="canvas">
+        <!-- 회전시킬객체 -->
+        <div id="rotation">
+            <!-- 회전부모 #rotation 안에서 가로정렬이 된 10개의 .face 자식
+            안에는 4개의 .cell이라는 자식이 있음  
+            홀수번째 .face 내부에는 1~4번 이미지 짝수번째 .face 내부에는 5~8 이미지 -->
+            <div class="face">
+                <div class="cell">
+                    <img src="./img/1.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/2.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/3.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/4.png" alt="이미지">
+                </div>
+            </div>
+            <div class="face">
+                <div class="cell">
+                    <img src="./img/5.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/6.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/7.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/8.png" alt="이미지">
+                </div>
+            </div>
+            <div class="face">
+                <div class="cell">
+                    <img src="./img/1.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/2.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/3.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/4.png" alt="이미지">
+                </div>
+            </div>
+            <div class="face">
+                <div class="cell">
+                    <img src="./img/5.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/6.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/7.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/8.png" alt="이미지">
+                </div>
+            </div>
+            <div class="face">
+                <div class="cell">
+                    <img src="./img/1.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/2.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/3.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/4.png" alt="이미지">
+                </div>
+            </div>
+            <div class="face">
+                <div class="cell">
+                    <img src="./img/5.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/6.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/7.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/8.png" alt="이미지">
+                </div>
+            </div>
+            <div class="face">
+                <div class="cell">
+                    <img src="./img/1.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/2.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/3.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/4.png" alt="이미지">
+                </div>
+            </div>
+            <div class="face">
+                <div class="cell">
+                    <img src="./img/5.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/6.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/7.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/8.png" alt="이미지">
+                </div>
+            </div>
+            <div class="face">
+                <div class="cell">
+                    <img src="./img/1.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/2.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/3.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/4.png" alt="이미지">
+                </div>
+            </div>
+            <div class="face">
+                <div class="cell">
+                    <img src="./img/5.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/6.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/7.png" alt="이미지">
+                </div>
+                <div class="cell">
+                    <img src="./img/8.png" alt="이미지">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

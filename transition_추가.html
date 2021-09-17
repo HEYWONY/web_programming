@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #out_box {
+            width: 800px;
+            height: 700px;
+            border: 10px solid black;
+            margin: 50px auto;
+        }
+        .in_box { 
+            width: 30px;
+            height: 100px;
+            background-color: aqua;
+            margin-bottom: 20px;
+            transition-property: width, background-color;
+            /* -> 변환하고 싶은 속성값만 지정 가능 */
+            transition-duration: 1s, 5s;
+            /* -> 변환하고자하는 값에 각각 시간 지정 가능 
+               -> ,를 사용하여 연결*/
+        }
+
+        /* 만약에 커서를 누르게 된다면 700px 변경하고 색을 노란색으로 변경 */
+        #out_box:hover > .in_box {
+            width: 700px;
+            background-color: yellow;
+        }
+        #out_box:hover > .in_box:nth-child(1) {
+            transition-delay: 0;
+            /* -> 변환 지연시간 지정. 여기서는 바로 시작하게 0*/
+            transition-timing-function: linear;
+            /* -> 가속도 형태 지정(바운스) 
+            1) linerar : 처음부터 끝까지 같은 속도로 트렌지션 진행 
+            2) ease(기본값) : 처음에는 천천히 시작 -> 점점 빨라짐 -> 마지막에는 천천히 
+            3) ease-in : 속도의 시작을 느리게
+            4) ease-in-out : 느리게 시작, 느리게 끝
+            5) ease-out : 속도를 느리게 끝냄*/
+        }
+        #out_box:hover > .in_box:nth-child(2) {
+            transition-delay: 1s;
+            transition-timing-function : ease;
+        }
+        #out_box:hover > .in_box:nth-child(3) {
+            transition-delay: 2s;
+            transition-timing-function : ease-in;
+        }
+        #out_box:hover > .in_box:nth-child(4) {
+            transition-delay: 3s;
+            transition-timing-function : ease-in-out;
+        }
+        #out_box:hover > .in_box:nth-child(5) {
+            transition-delay: 4s;
+            transition-timing-function : ease-out;
+        }
+        #out_box:hover > .in_box:nth-child(6) {
+            transition-delay: 5s;
+        }
+    </style>
+</head>
+<body>
+    <div id="out_box">
+        <div class="in_box"></div>
+        <div class="in_box"></div>
+        <div class="in_box"></div>
+        <div class="in_box"></div>
+        <div class="in_box"></div>
+        <div class="in_box"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 500px;
+            height: 500px;
+        }
+        #out_box {
+            border:10px solid black;
+            margin: 300px auto;
+            overflow: hidden;
+        
+        }
+        #in_box {
+            background-color: violet;
+            transform: translateX(0);
+            /* transition-duration: 2s; */
+            /* -> 마우스엔터(mouseeenter) + 마우스리브(mouseleave) 두 경우 모두 변환시간 적용 */
+            animation-name: move; 
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+        /* 1. 반응선택자(이벤트) 적용시 움직임 지정  */
+        /* #out_box:hover > #in_box {
+            transform: translateX(500px);
+            transition-duration: 2s;
+             -> 마우스 엔터(mouseenter) 시에만 변환시간 적용
+        } */
+        /* 2. 객체가 이벤트 없이 그냥 움직임 지정 -> animation */
+        @keyframes move {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(500px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="out_box">
+        <div id="in_box">
+            <h1>transform</h1>
+        </div>
+    </div>
+</body>
+</html>

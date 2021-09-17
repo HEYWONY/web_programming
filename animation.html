@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 50px;
+            height: 50px;
+            background-color: aqua;
+            position: absolute;
+            top: 0;
+            left: 0;
+            /* 1. 만들어놓은 keyframes를 연결 */
+            animation-name: move;
+            /* 2. 애니메이션 진행시간 */
+            animation-duration: 0.5s;
+            /* 3. 애니메이션 반복값 설정 */
+            animation-iteration-count: infinite;
+            /* 
+            1) 숫자: 반복할 횟수 지정(단위X)
+            2) infinte : 무한반복 */
+            /* 4. 애니메이션 방향값 설정 */
+            animation-direction: alternate;
+            /* 1)normal(기본값): form->to (정방향 재생)
+            2)form->to->form(매 사이클마다 방향을 바꿈, 처음에는 정방향)
+            3) reverse: to->from (역방향 재생)
+            4) alternate-reverse:to->from->to (매 사이클마다 방향을 바꿈, 처음에는 역방향) */
+            /* 5. 애니메이션의 가속도 형태 */
+            animation-timing-function: linear;
+            /* 6. 애니메이션의 지연 시간 */
+            animation-delay: 0s;
+        }
+        #box:hover {
+            /* 7. 실행되는 애니메이션 잠시 일시정지 */
+            animation-play-state: paused;
+        }
+
+        #out {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            position: absolute;
+            top: 400px;
+            left: 0;
+            animation-name: move;
+            animation-duration: 3s;
+            animation-iteration-count: 3;
+            animation-direction: alternate;
+            animation-timing-function: ease-in-out;
+            animation-delay: 2s;
+        }
+
+        @keyframes move {
+            from {
+                left: 0;
+            }
+            to {
+                left: 1000px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="box"> </div>
+    <div id="out"> </div>
+</body>
+</html>
