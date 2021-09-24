@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 가변 레이아웃에서의 유튜브 영상삽입 
+        1. 유튜브 비율에 맞는 부모영역 만들기*/
+
+        #container {
+            width: 100%;
+            /* -> 부모요소인 body에게 100% 맞춤 */
+            /* 유튜브 영상 비율 - 16:9 */
+            height: 0;
+            padding-bottom: 56.25%;
+            /* 9/16=0.5625*100=56.25 */
+            /* -> width와 padding-bottom 둘 다 부모의 너비 기준으로 설정 */
+            overflow: hidden;
+            background-color: aqua;
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+
+        /* 2. iframe을 부모기준으로 위치 설정 + 부모 영역만틈 가로세로 100% */
+        #container > iframe {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- iframe태그
+    -> 외부 문서 삽입 - 주로 유튜브영상 삽입시 사용  
+    1) width/height : 가로/세로값 설정
+    2) src : 경로
+    3) name : iframe 요소의 이름 명시
+    4) scrolling : 스크롤바 생성 여부   
+        → yes (생성). no(생성안함), auto(자동)
+    5) frameborder : 프레임 테두리 경계선 유무
+        → 0(무), 1(유), html5에서는 지원X
+
+    → 유튜브의 매개변수 
+    src="경로?매개변수"
+    1) autoplay : 자동으로 재생할지 여부 (mute=1 : 음소거하여 사용가능)
+    2) loop : 동영상을 반복해서 재생여부
+    3) controls : 컨트롤바를 숨길지에 대한 여부
+-->
+    <h1> 가변 레이아웃에서의 유튜브 영상 삽입</h1>
+    <div id="container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/QPUjV7epJqE?autoplay=1&mute=1&loop=1&controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</body>
+</html>
