@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4560designhaus</title>
+    <!-- 웹폰트연결 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- pc~mobile까지의 외부css파일연결 -->
+    <link href="./css/pc.css" type="text/css" rel="stylesheet">
+    <link href="./css/laptop.css" type="text/css" rel="stylesheet">
+    <link href="./css/laptop-size.css" type="text/css" rel="stylesheet">
+    <link href="./css/tab.css" type="text/css" rel="stylesheet">
+    <link href="./css/m.css" type="text/css" rel="stylesheet">
+    <style>
+        /* 초기화 */
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul,ol,li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color:#333;
+        }
+        img{
+            border: 0;
+        }
+        /* 공통영역 */
+        html,body{
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <!-- 고정영역 -->
+    <h1 id="logo">
+        <a href="#">
+            <img src="./img/logo.png" alt="디자인하우스4560로고">
+        </a>
+    </h1>
+    <h2 id="join_box">
+        <a href="#">
+            <span>JOIN</span><img src="./img/btn_top_reser.png" alt="이용안내 바로가기">
+        </a>
+    </h2>
+    <!-- wrap영역 -->
+    <div id="wrap">
+        <!-- 메인메뉴영역 -->
+        <ul id="gnb">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <!-- 타이틀영역 -->
+        <h3 id="main_title">
+            Share the Experience
+        </h3>
+        <!-- 컨텐츠영역 -->
+        <section id="con_wrap">
+            <!-- 한 면만 있고 마우스 올리면
+            180도 회전하는 원 4개 -->
+            <div class="out_box">
+                <div class="rotateBox">
+                    <a href="#">
+                        <img src="./img/thumb_about.jpg" alt="about">
+                        <span>ABOUT</span>
+                    </a>
+                </div>
+            </div>
+            <div class="out_box">
+                <div class="rotateBox">
+                    <a href="#">
+                        <img src="./img/thumb_news.jpg" alt="news">
+                        <span>NEWS</span>
+                    </a>
+                </div>
+            </div>
+            <div class="out_box">
+                <div class="rotateBox">
+                    <a href="#">
+                        <img src="./img/thumb_gallery.jpg" alt="gallery">
+                        <span>GALLERY</span>
+                    </a>
+                </div>
+            </div>
+            <div class="out_box">
+                <div class="rotateBox">
+                    <a href="#">
+                        <img src="./img/thumb_contact.jpg" alt="contact">
+                        <span>CONTACT</span>
+                    </a>
+                </div>
+            </div>
+            <!-- 앞면과 뒷면이 있고 마우스 올리면
+            180도 회전하는 원 4개 -->
+            <div class="out_box f_b-box">
+                <div class="b_box">
+                    <a href="#">
+                        <img src="./img/img01.jpg" alt="리스트">
+                    </a>
+                </div>
+                <div class="f_box">
+                    <a href="#">
+                        <img src="./img/img01.jpg" alt="리스트">
+                        <span>
+                            <span class="title">HF 1</span>
+                            <span class="artist">Herbert Hriche</span>
+                            <span class="date">1958</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="out_box f_b-box">
+                <div class="b_box">
+                    <a href="#">
+                        <img src="./img/img02.jpg" alt="리스트">
+                    </a>
+                </div>
+                <div class="f_box">
+                    <a href="#">
+                        <img src="./img/img02.jpg" alt="리스트">
+                        <span>
+                            <span class="title">HF 1</span>
+                            <span class="artist">Herbert Hriche</span>
+                            <span class="date">1958</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="out_box f_b-box">
+                <div class="b_box">
+                    <a href="#">
+                        <img src="./img/img03.jpg" alt="리스트">
+                    </a>
+                </div>
+                <div class="f_box">
+                    <a href="#">
+                        <img src="./img/img03.jpg" alt="리스트">
+                        <span>
+                            <span class="title">HF 1</span>
+                            <span class="artist">Herbert Hriche</span>
+                            <span class="date">1958</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="out_box f_b-box">
+                <div class="b_box">
+                    <a href="#">
+                        <img src="./img/img04.jpg" alt="리스트">
+                    </a>
+                </div>
+                <div class="f_box">
+                    <a href="#">
+                        <img src="./img/img04.jpg" alt="리스트">
+                        <span>
+                            <span class="title">HF 1</span>
+                            <span class="artist">Herbert Hriche</span>
+                            <span class="date">1958</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <!-- 더보기버튼 -->
+            <button type="button" id="more">+</button>
+        </section>
+        <!-- 푸터영역 -->
+        <footer>
+            <!-- 하단로고영역 -->
+            <h4 id="bottom_logo">
+                <a href="#">
+                    <img src="./img/f_logo.png" alt="하단 로고">
+                </a>
+            </h4>
+            <!-- 회사주소와 저작권영역 -->
+            <div id="copy_box">
+                서울특별시 서초구 매헌로 16 하이브랜드 3층<br><small>Copyright &copy; 2018 4560DESIGNHAUS. All Right Reserved.</small>
+            </div>
+            <!-- sns영역 -->
+            <ul id="sns_box">
+                <li id="sns_l">
+                    <a href="#">
+                        <img src="./img/btn_sns_instargram.png" alt="인스타그램 바로가기">
+                    </a>
+                </li>
+                <li id="sns_r">
+                    <a href="#">
+                        <img src="./img/btn_sns_naver.png" alt="네이버 블로그 바로가기">
+                    </a>
+                </li>
+            </ul>
+        </footer>
+    </div>
+    <!-- 고정영역 -->
+    <a href="#" id="top_but">TOP</a>
+</body>
+</html>

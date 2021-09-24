@@ -1,0 +1,310 @@
+@charset "utf-8";
+/* 최대크기 959 ~ 최소크기760*/
+@media all and (max-width:959px) and (min-width:760px){
+    /********** 고정영역 **********/
+    #logo,#join_box,#top_but{
+        position: fixed;
+        /* =>화면을 기준으로 위치 설정 */
+        z-index: 999;
+        /* background-color: aquamarine; */
+    }
+    #logo,#join_box{
+        top:50px;
+    }
+    #logo{
+        width: 80px;
+        height: 90px;
+        left: 50px;
+    }
+    #logo > a{
+        display: block;
+    }
+    #logo > a, #logo img{
+        width: 100%;
+        height: 100%;
+    }
+    #join_box{
+        height: 27px;
+        font-size: 15px;
+        /* =>폰트사이즈 미지정시
+        브라우저상에서 16px지정  */
+        font-weight: 100;
+    }
+    #join_box > a{
+        display: block;
+        height: 27px;
+    }
+    #join_box img{
+        height: 27px;
+    }
+    #join_box span{
+        margin-right: 10px;
+    }
+    #join_box span,#join_box img{
+        vertical-align: middle;
+        /* =>inline,inline-block형식태그가
+        나란히 나왔을 경우 부모안에서
+        세로 정렬값을 지정 */
+    }   
+    #join_box,#top_but{
+        right:50px;
+    }
+    #top_but{
+        width: 40px;
+        height: 40px;
+        display: block;
+        border: 1px solid #666;
+        border-radius: 50%;
+        font-size: 12px;
+        text-align: center;
+        box-sizing: border-box;
+        bottom: 50px;
+        line-height: 38px;
+        background-color: white;
+    }
+    /********** wrap영역 **********/
+    /* #wrap 가로값 유동단위로 지정
+    1.유동단위값
+    1)% : 부모 기준 값
+    2)vw : 기기의 가로 기준 값
+    3)vh : 기기의 세로 기준 값
+    2.유동값 계산식
+    =>객체/기준값=비율값*100%,vw,vh */
+    #wrap{
+        width: 100%;
+        /* background-color: gray; */
+        padding: 50px 15px 0 15px;
+        box-sizing: border-box;
+    }
+    /* 메인메뉴영역 */
+    #gnb{
+        width: 120px;
+        /* height: 58px; */
+        overflow: hidden;
+        /* =>float자식 사용시 문제점 해결 */
+        margin: 0 auto;
+        /* background-color: blueviolet; */
+    }
+    #gnb > li{
+        width: 6px;
+        height: 23px;
+        background-color: #999;
+        float: left;
+        margin:calc((58px - 23px) / 2) 7px;
+        border-radius: 3px;
+        cursor: pointer;
+        /* =>마우스 커서모양 포인터형태 바꾸기 */
+    }
+    #gnb > li:first-child{
+        height: 58px;
+        background-color: #333;
+        margin: 0 7px;
+    }
+    #gnb > li:hover{
+        height: 58px;
+        margin:0 7px;
+        transition-duration: 1s;
+    }
+    /* 타이틀영역 */
+    #main_title{
+        font-size: 30px;
+        font-weight: 400;
+        text-align: center;
+        color: #484848;
+        margin:80px 0;
+    }
+    /* 컨텐츠영역 */
+    #con_wrap{
+        width: 100%;
+        /* background-color: coral; */
+        overflow: hidden;
+        margin: 0 auto;
+        position: relative;
+        top: 0;
+        left: 0;
+        padding-bottom: 94px;
+        /* #more의 높이값44px+50px */
+    }
+    /* 한줄에 2개의 원,필요한 여백갯수 1개 */
+    .out_box{
+        /* %단위값 지정시 가로세로지정하기 - 유동적인 크기*/
+        width: calc((100% - 1%) / 2);
+        height:0;
+        padding-bottom: calc((100% - 1%) / 2);
+        /* =>%단위값으로 크기지정시
+        width,padding-bottom은 부모의
+        가로를 기준으로 크기설정 */
+        /* 한쪽여백설정 */
+        margin-right: 1%;
+        margin-bottom: 1%;
+        float: left;
+        overflow: hidden;
+        perspective: 1000px;
+        transform-style: preserve-3d;
+        border-radius: 50%;
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+    /* 2,4,6번째 원의 오른쪽 여백제거 
+    odd : 홀수
+    even : 짝수*/
+    .out_box:nth-child(even){
+        margin-right: 0;
+    }
+    /* 거가장 아래줄의 2개의 원 margin-bottom제 */
+    /* :nth-last-child(숫자) - 형제자매요소들의 순번을 뒤에서 카운트 
+    :nth-last-of-type(숫자) - 같은 유형의 형제자매요소들의 순번을 뒤에서 카운트*/
+    .out_box:nth-last-of-type(1),.out_box:nth-last-of-type(2){
+        margin-bottom: 0;
+    }
+    .out_box > div{
+        width: 100%;
+        height: 100%;
+        /* 부모의 padding여백도 영역으로 인식 시키기 */
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        overflow: hidden;
+        transition-duration: 0.5s;
+        /* =>변환시간설정-부드러운 변환 */
+    }
+    /* 동전돌리기 - 한면만 있는 동그라미 */
+    .rotateBox{
+        transform: rotateY(0);
+    }
+    .out_box:hover > .rotateBox{
+        transform: rotateY(180deg);
+    }
+    /* 동전돌리기 - 양면이 있는 동그라미 */
+    /* 뒷면 - 투명하고 Y축으로 180도 회전된 상태 */
+    .b_box{
+        opacity: 0;
+        transform: rotateY(180deg);
+    }
+    /* 앞면 - 불투명하고 Y축으로 0 */
+    .f_box{
+        opacity: 1;
+        transform: rotateY(0);
+    }
+    .f_b-box:hover .b_box{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .f_b-box:hover .f_box{
+        opacity: 0;
+        transform: rotateY(180deg);
+    }
+    .out_box a,.out_box img{
+        width: 100%;
+        height: 100%;
+    }
+    .out_box a{
+        display: block;
+    }
+    .out_box a > span{
+        /* 객체의 정확한 사이즈를 모르거나
+        바뀔 수 있을 때, 부모나 어떤 객체 안에서
+        가로세로 중앙정렬하고 싶을 때 */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        color: white;
+        font-size: 30px;
+        font-weight: 300;
+        display: block;
+        text-align: center;
+    }
+    .out_box a > span > span{
+        display: block;
+        line-height: 1.7;
+    }
+    .title{
+        font-size: 24px;
+        font-weight: 500;
+    }
+    .artist{
+        font-size: 14px;
+        color: yellow;
+    }
+    .date{
+        font-size: 14px;
+    }
+    #more{
+        width: 44px;
+        height: 44px;
+        outline: 0;
+        border: 1px solid #999;
+        box-sizing: border-box;
+        border-radius: 50%;
+        font-size: 40px;
+        font-family: 'Noto Sans KR', sans-serif;
+        font-weight: 300;
+        text-align: center;
+        line-height: 41px;
+        background-color: #fff;
+        cursor: pointer;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #8c8c8c;
+    }
+    /* footer영역 */
+    footer{
+        padding: 100px 0 50px 0;
+        text-align: center;
+    }
+    #bottom_logo{
+        width: 70px;
+        height: 50px;
+        margin: 0 auto;
+    }
+    #bottom_logo a{
+        display: block;
+    }
+    #bottom_logo a,#bottom_logo img{
+        width: 100%;
+        height: 100%;
+    }
+    #copy_box{
+        margin: 20px 0;
+        line-height: 1.7;
+        /* 행간설정
+        =>단위없이 숫자만 지정하는 경우
+        태그 설정된 폰트사이즈*숫자
+        =>배수값으로 설정가능 */
+        color:#757575;
+    }
+    #copy_box > small{
+        font-size: 12px;
+        /* =>사용자들이 잘 읽을 수 있는 가장 작은 폰트 크기 */
+    }
+    #sns_box{
+        width: 72px;
+        /* height: 26px; */
+        overflow: hidden;
+        margin: 0 auto;
+        /* background-color: aqua; */
+    }
+    #sns_box > li{
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+    }
+    #sns_l{
+        float: left;
+    }
+    #sns_r{
+        float: right;
+    }
+    #sns_box > li a{
+        display: block;
+    }
+    #sns_box > li a,#sns_box > li img{
+        width: 100%;
+        height: 100%;
+    }
+}
