@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>청주대</title>
+    <link href="./reset.css" type="text/css" rel="stylesheet">
+    <link href="./1200.css" type="text/css" rel="stylesheet">
+    <link href="./m.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    <!-- 팝업영역 -->
+    <div id="pop_wrap">
+        <div class="width_align">
+            <!-- 보였다가 안보였다하는 메뉴버튼 -->
+            <input type="checkbox" id="x_box_input">
+            <label for="x_box_input" id="x_box_label">X</label>
+            <!-- 보였다가 안보였다하는 내용영역 -->
+            <div id="x_box_con">
+                <!-- 이전버튼 -->
+                <h1 class="arrow" id="left">&lt;</h1>
+                <!-- 갤러리영역 -->
+                <ul id="list_wrap">
+                    <li>왼쪽내용</li>
+                    <li>중간내용</li>
+                    <li>오른쪽내용</li>
+                </ul>
+                <!-- 다음버튼 -->
+                <h1 class="arrow" id="right">&gt;</h1>
+            </div>
+        </div>
+    </div>
+    <!-- 본문영역 -->
+    <div id="wrap">
+        <header>
+            <div class="width_align"></div>
+        </header>
+        <section>
+            <nav id="gnb">
+                <div class="width_align">
+                    <!-- 왼쪽 -->
+                    <ul id="left_login">
+                        <li>로그인</li>
+                        <li>사이트맵</li>
+                        <li>
+                            <select>
+                                <option>LANGUAGE</option>
+                                <option>ENGLISH</option>
+                                <option>CHINESE</option>
+                            </select>
+                        </li>
+                    </ul>
+                    <!-- 오른쪽 -->
+                    <ul id="right_login">
+                        <li class="skew_wrap">
+                            <!-- 기울어진 도형 -->
+                            <div class="skew_box" id="skew_box_1"></div>
+                            <!-- 내부텍스트영역 -->
+                            <div class="skew_text">
+                                <a href="#">입학안내</a>
+                            </div>
+                        </li>
+                        <li class="skew_wrap">
+                            <!-- 기울어진 도형 -->
+                            <div class="skew_box" id="skew_box_2"></div>
+                            <!-- 내부텍스트영역 -->
+                            <div class="skew_text">
+                                <a href="#">팝업닫기</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <article id="banner_wrap"></article>
+            <article id="con_wrap_1">
+                <div class="width_align">
+                    <h2 id="con_1_title">청주는 지금</h2>
+                    <!-- 이전버튼 -->
+                    <h3 class="con_1_arrow">&lt;</h3>
+                    <!-- 갤러리영역 -->
+                    <div id="mask_wrap">
+                        <ul id="img_wrap">
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>4</li>
+                            <li>5</li>
+                            <li>6</li>
+                            <li>7</li>
+                            <li>8</li>
+                        </ul>
+                    </div>
+                    <!-- 다음버튼 -->
+                    <h3 class="con_1_arrow">&gt;</h3>
+                    <!-- 갤러리 페이지네이션 -->
+                    <ul id="but_wrap">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <!-- 컨텐츠영역 -->
+                    <ul id="bottom_con">
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                        <li>
+                            <div>위</div>
+                            <div>아래</div>
+                        </li>
+                        <li>6</li>
+                        <li>7</li>
+                    </ul>
+                </div>
+            </article>
+            <article id="con_wrap_2">
+                <div class="width_align"></div>
+            </article>
+            <article id="con_wrap_3">
+                <div class="width_align">
+                    <h2>CJU그린캠퍼스</h2>
+                    <ul id="con_3_list">
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                        <li>4</li>
+                    </ul>
+                </div>
+                <div id="con_3_right_box"></div>
+            </article>
+            <article id="con_wrap_4">
+                <!-- 왼쪽 -->
+                <div id="con_4_left_box">
+                    <div id="con_4_in_left"></div>
+                </div>
+                <!-- 아래쪽 -->
+                <div id="con_4_bottom_box"></div>
+                <!-- 오른쪽 -->
+                <div id="con_4_right_box">
+                    <div id="con_4_in_right"></div>
+                </div>
+            </article>
+        </section>
+        <footer></footer>
+    </div>
+</body>
+</html>

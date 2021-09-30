@@ -1,0 +1,324 @@
+@charset "utf-8";
+@media all and (max-width:759px){
+    /********** 공통영역 **********/
+    body > div,header,section,nav,article,footer{
+        width: 100%;
+    }
+    .width_align{
+        width: 100%;
+        background-color: pink;
+        margin: 0 auto;
+    }
+    /* float자식있을때 - 가상의 막내요소 만들기 */
+    .width_align::after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+    /********** 팝업영역 **********/
+    #pop_wrap{
+        /* height: 100px; */
+        background-color: blueviolet;
+    }
+    /* 선택버튼은 보여지지 않고 특성만 활용 */
+    #x_box_input{
+        display: none;
+    }
+    /* 보여지는 버튼 역할 */
+    #x_box_label{
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        font-weight: 900;
+        background-color: lightsalmon;
+        float: right;
+    }
+    #x_box_con{
+        width: 100%;
+        height: 70px;
+        background-color:  lightsalmon;
+        float: left;
+        overflow: hidden;
+        transition-duration: 1s;
+    }
+    /* checkbox가 체크되면 뒤에 있는 #x_box_con의 높이가 서서히 0처리
+    후자선택자
+    1)바로 뒤에 있는 객체 선택 - 선택자 + 선택자
+    2)그냥 뒤에 있는 객체 선택 - 선택자 ~ 선택자*/
+    #x_box_input:checked ~ #x_box_con{
+        height: 0;
+    }
+    .arrow{
+        width: 6.5%;
+        /* 유동값 계산 공식
+        객체/기준값=비율값*100 */
+        /* 50/759=0.065*100 */
+        height: 70px;
+        text-align: center;
+        line-height: 70px;
+        font-size: 20px;
+    }
+    #list_wrap{
+       width: calc(100% - (6.5% * 2)); 
+       /* 100% - (6.5% * 2) */
+       height: 70px;
+       border: 1px solid black;
+       box-sizing: border-box;
+       overflow: hidden;
+    }
+    .arrow,#list_wrap,#list_wrap > li{
+        float: left;
+    }
+    #list_wrap > li{
+        width: 100%;
+        height: 68px;
+        border-right:1px solid black;
+        box-sizing: border-box;
+    }
+    #list_wrap > li:last-child{
+        border-right: 0;
+    }
+
+    /********** 본문영역 **********/
+    #wrap{
+        /* height: 2350px; */
+        background-color: cadetblue;
+    }
+    /* header영역 */
+    header{
+        height: 100px;
+        background-color: purple;
+    }
+    /********** section영역 **********/
+    section{
+        /* height: 2250px; */
+        background-color: seagreen;
+    }
+    /* nav영역 */
+    #gnb{
+        display: none;
+    }
+    #left_login{
+        height: 50px;
+        float: left;
+        background-color: yellow;
+    }
+    /* 가상요소로 구분선 만들어주기 */
+    #left_login > li:nth-child(2)::before,#left_login > li:nth-child(2)::after{
+        content:"/";
+        margin:0 5px;
+    }
+    #right_login{
+        height: 50px;
+        float: right;
+        background-color: yellow;
+        margin-right: 14px;
+    }
+    .skew_wrap{
+        width: 150px;
+        height: 50px;
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+    .skew_box,.skew_text{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .skew_box{
+        border: 1px solid black;
+        box-sizing: border-box;
+        transform: skewX(-30deg);
+    }
+    #skew_box_1{
+        background-color: yellowgreen;
+    }
+    #skew_box_2{
+        background-color: red;
+    }
+    .skew_text{
+        text-align: center;
+    }
+    .skew_text > a{
+        color: black;
+    }
+    #gnb ul > li{
+        float: left;
+        line-height: 50px;
+    }
+    /* banner영역 */
+    #banner_wrap{
+        display: none;
+    }
+    /* #con_wrap_1영역 */
+    #con_1_title{
+        background-color: yellow;
+        line-height: 50px;
+        text-align: center;
+    }
+    .con_1_arrow{
+        width: calc((100% - 52.7%) / 2);
+        height: 50px;
+        background-color: aquamarine;
+        text-align: center;
+        line-height: 50px;
+        float: left;
+    }
+    #mask_wrap{
+        width: 52.7%;
+        /* 400/759=0.527*100 */
+        height: 200px;
+        background-color: blueviolet;
+        float: left;
+        overflow: hidden;
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+    #img_wrap{
+        width: 400%;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        animation: move 5s alternate infinite linear;
+    }
+    @keyframes move{
+        from{
+            left:0;
+        }
+        to{
+            left: -300%;
+        }
+    }
+    #img_wrap > li{
+        width: calc(100% / 8);
+        height: 200px;
+        float: left;
+        border: 1px solid black;
+        box-sizing: border-box;
+        text-align: center;
+        line-height: 200px;
+    }
+    #but_wrap{
+        width: 46.1%;
+        /* 350/759=0.461*100 */
+        background-color: yellow;
+        float: left;/* 좌우 margin속성값 auto보다 더 정확한 명령 */
+        margin:0 calc((100% - 46.1%) / 2);
+    }
+    #but_wrap > li{
+        width: calc(100% / 8);
+        /* height: 50px; */
+        height: 0;
+        padding-bottom: calc(100% / 8);
+        border: 1px solid black;
+        box-sizing: border-box;
+        border-radius: 50%;
+        float: left;
+    }
+    #bottom_con{
+        width: 100%;
+        background-color: lightsalmon;
+        float: left;
+    }
+    #bottom_con > li{
+        width: calc(100% / 2);
+        height: 200px;
+        border: 5px solid black;
+        float: left;
+        box-sizing: border-box;
+    }
+    #bottom_con > li:first-child{
+        width: 100%;
+    }
+    #bottom_con > li:nth-last-child(3) > div{
+        width: 100%;
+        height: 50%;
+        border: 2px solid blue;
+        box-sizing: border-box;
+    }
+    /* #con_wrap_2영역 */
+    #con_wrap_2{
+        height: 100px;
+        background-color: dodgerblue;
+    }
+    /* #con_wrap_3영역 */
+    #con_wrap_3{
+        /* height: 200px; */
+        background-color: salmon;
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+    #con_3_right_box{
+        width: 100%;
+        height: 400px;
+        background-color: lightseagreen;
+    }
+    #con_wrap_3 h2{
+        width: 100%;
+        line-height: 50px;
+        background-color: aqua;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+    #con_3_list{
+        width: 100%;
+        height: 150px;
+        background-color: blueviolet;
+    }
+    #con_3_list > li{
+        width: calc(100% / 4);
+        height: 100%;
+        border: 1px solid black;
+        box-sizing: border-box;
+        text-align: center;
+        line-height: 150px;
+        /* =>line-height에 %값 지정시, font-size를 기준으로 함 */
+        float: left;
+    }
+    /* #con_wrap_4영역 */
+    #con_wrap_4{
+        position: relative;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+    }
+    #con_4_left_box{
+        width: 100%;
+        /* height: 300px; */
+        background-color: cadetblue;
+    }
+    #con_4_right_box{
+        width: 100%;
+        /* height: 300px; */
+        background-color: teal;
+    }
+    #con_4_bottom_box{
+        width: 100%;
+        height: 50px;
+        background-color: violet;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+    }
+    #con_4_in_left{
+        width: 100%;
+        height: 300px;
+        background-color: burlywood;
+    }
+    #con_4_in_right{
+        width: 100%;
+        height: 300px;
+        background-color: gray;
+    }
+    /********** footer영역 **********/
+    footer{
+        height: 100px;
+        background-color: steelblue;
+    }
+}
